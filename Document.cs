@@ -23,35 +23,23 @@ Deve essere possibile effettuare la ricerca dei prestiti dato nome e cognome di 
 //documenti
 //utenti
 
-Library ravennaLibrary = new Library();
-ravennaLibrary.Title = "Ravenna";
 
-Book lotr = new Book();
-Book guerraEPace = new Book();
 
-lotr.title = "Il signore degli anelli";
-lotr.author = "Tolkien";
-lotr.year = 1969;
-lotr.isbn = 1234567893;
-lotr.firstName = "Davide";
-lotr.lastName = "Mucci";
 
-guerraEPace.title = "Guerra e pace";
-guerraEPace.author = "Tolstoj";
-guerraEPace.year = 1890;
-guerraEPace.isbn = 1234563593;
-guerraEPace.firstName = "Davide";
-guerraEPace.lastName = "Mucci";
 
-Document[] documents = 
 
-Console.WriteLine("Vuoi cercare un libro per codice/titolo/nomeutente?[codice/titolo/nomeutente]");
-string answer = Console.ReadLine();
+// Documenti estende Utente
 
-switch (answer)
+public class Document : Library.User
 {
-
-
+    public int isbn { get; set; }
+    public string title { get; set; }
+    public string section { get; set; }
+    public bool available { get; set; }
+    public string position { get; set; }
+    public string author { get; set; }
+    public int year { get; set; }
+    public int duration { get; set; }
 }
 
 
