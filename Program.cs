@@ -26,65 +26,78 @@ Deve essere possibile effettuare la ricerca dei prestiti dato nome e cognome di 
 Library ravennaLibrary = new Library();
 ravennaLibrary.Title = "Ravenna";
 
-Library.User davide = new Library.User("davide", "mucci", "davide@email.com", "asfijfnaosf", 3342512230);
-Console.WriteLine(davide.lastName);
+Book lotr = new Book();
+Book guerraEPace = new Book();
+
+lotr.title = "Il signore degli anelli";
+lotr.author = "Tolkien";
+lotr.year = 1969;
+lotr.isbn = 1234567893;
+lotr.firstName = "Davide";
+lotr.lastName = "Mucci";
+
+guerraEPace.title = "Guerra e pace";
+guerraEPace.author = "Tolstoj";
+guerraEPace.year = 1890;
+guerraEPace.isbn = 1234563593;
+guerraEPace.firstName = "Davide";
+guerraEPace.lastName = "Mucci";
+
+Console.WriteLine("Vuoi cercare un libro per codice/titolo/nomeutente?[codice/titolo/nomeutente]");
+string answer = Console.ReadLine();
+
+switch (answer)
+{
+
+
+}
+
+
 
 // Libreria
 public class Library
 {
     public string Title { get; set; }
 
+    // Utente
     public class User
     {
-        // Costruttore User
-        public User(string firstName, string lastName, string email, string password, long phoneNumber)
-        {
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.email = email;
-            this.password = password;
-            this.phoneNumber = phoneNumber;
-        }
-        // Getters e Setters
+
         public string firstName { get; set; }
         public string lastName { get; set; }
-        protected string email { get; }
-
-        private string password;
+        protected string email { get; set; }
+        public string password { get; set; }
         protected long phoneNumber { get; set; }
 
     }
 
 }
 
-// Utente estende libreria
-
-
 // Documenti estende Utente
 
-public class Document : User
+public class Document : Library.User
 {
+    public int isbn { get; set; }
+    public string title { get; set; }
+    public string section { get; set; }
+    public bool available { get; set; }
+    public string position { get; set; }
+    public string author { get; set; }
+    public int year { get; set; }
 
-    int isbn;
-    string title;
-    int year;
-    string section;
-    bool available;
-    string position;
-    string author;
+    public int duration { get; set; }
+}
 
-    public Document(string firstName, string lastName, string email, string password, long phoneNumber, int isbn, string title, int year, string section, bool available, string position, string author) : base(firstName, lastName, email, password, phoneNumber)
-    {
-        this.isbn = isbn;
-        this.title = title;
-        this.year = year;
-        this.section = section;
-        this.available = available;
-        this.position = position;
-        this.author = author;
+// FIX BOOK AND DVD WITH OVERWRITE
 
+public class Book : Document
+{
+    public int pageNumber { get; set; }
+}
 
-    }
+public class Dvd : Document
+{
+    public int minutesDuration { get; set; }
 }
 
 
