@@ -26,7 +26,7 @@ Deve essere possibile effettuare la ricerca dei prestiti dato nome e cognome di 
 Library ravennaLibrary = new Library();
 ravennaLibrary.Title = "Ravenna";
 
-User davide = new User("davide", "mucci", "davide@email.com", "asfijfnaosf", 3342512230);
+Library.User davide = new Library.User("davide", "mucci", "davide@email.com", "asfijfnaosf", 3342512230);
 Console.WriteLine(davide.lastName);
 
 // Libreria
@@ -34,27 +34,57 @@ public class Library
 {
     public string Title { get; set; }
 
-}
-
-// Utente
-public class User : Library
-{
-    public User(string firstName, string lastName, string email, string password, long phoneNumber)
+    public class User
     {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-        this.phoneNumber = phoneNumber;
+        // Costruttore User
+        public User(string firstName, string lastName, string email, string password, long phoneNumber)
+        {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.email = email;
+            this.password = password;
+            this.phoneNumber = phoneNumber;
+        }
+        // Getters e Setters
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        protected string email { get; }
+
+        private string password;
+        protected long phoneNumber { get; set; }
+
     }
 
-    public string firstName { get; set; }
-    public string lastName { get; set; }
-    public string email { get; set; }
-    public string password { get; set; }
-    public long phoneNumber { get; set; }
-
-
-
 }
+
+// Utente estende libreria
+
+
+// Documenti estende Utente
+
+public class Document : User
+{
+
+    int isbn;
+    string title;
+    int year;
+    string section;
+    bool available;
+    string position;
+    string author;
+
+    public Document(string firstName, string lastName, string email, string password, long phoneNumber, int isbn, string title, int year, string section, bool available, string position, string author) : base(firstName, lastName, email, password, phoneNumber)
+    {
+        this.isbn = isbn;
+        this.title = title;
+        this.year = year;
+        this.section = section;
+        this.available = available;
+        this.position = position;
+        this.author = author;
+
+
+    }
+}
+
 
