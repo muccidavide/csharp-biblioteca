@@ -19,19 +19,16 @@ L’utente deve poter eseguire delle ricerche per codice o per titolo e, eventua
 Deve essere possibile effettuare la ricerca dei prestiti dato nome e cognome di un utente.
 */
 
-// biblioteca
-//documenti
-//utenti
-
-
-
-
-
-
 // Libreria
 public class Library
 {
     public string Title { get; set; }
+    // Lista Utenti
+    protected List<User> users;
+    // Lista Documenti
+    protected List<Document> documents;
+
+    // Metodi di ricerca da Implementare 
 
     // Utente
     public class User

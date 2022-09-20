@@ -43,15 +43,5 @@ guerraEPace.isbn = 1234563593;
 guerraEPace.firstName = "Davide";
 guerraEPace.lastName = "Mucci";
 
-Document[] documents = 
-
-Console.WriteLine("Vuoi cercare un libro per codice/titolo/nomeutente?[codice/titolo/nomeutente]");
-string answer = Console.ReadLine();
-
-switch (answer)
-{
-
-
-}
-
+Console.WriteLine(ravennaLibrary);
 
