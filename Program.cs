@@ -19,8 +19,42 @@ L’utente deve poter eseguire delle ricerche per codice o per titolo e, eventua
 Deve essere possibile effettuare la ricerca dei prestiti dato nome e cognome di un utente.
 */
 
+// biblioteca
+//documenti
+//utenti
+
+Library ravennaLibrary = new Library();
+ravennaLibrary.Title = "Ravenna";
+
+User davide = new User("davide", "mucci", "davide@email.com", "asfijfnaosf", 3342512230);
+Console.WriteLine(davide.lastName);
+
+// Libreria
+public class Library
+{
+    public string Title { get; set; }
+
+}
+
+// Utente
+public class User : Library
+{
+    public User(string firstName, string lastName, string email, string password, long phoneNumber)
+    {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public string firstName { get; set; }
+    public string lastName { get; set; }
+    public string email { get; set; }
+    public string password { get; set; }
+    public long phoneNumber { get; set; }
 
 
 
-
+}
 
